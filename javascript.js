@@ -67,4 +67,20 @@ function playRound(humanChoice, computerChoice) { // Start here!
     return winner;
 }
 
-alert(playRound(getHumanChoice(), getComputerChoice()));
+function playGame() {
+    let gameWinner = "";
+    for(let i = 0; i < 5; i++) {
+        alert(playRound(getHumanChoice(), getComputerChoice()));
+
+    }
+    if(humanScore > computerScore) {
+        gameWinner = "Human wins!";
+    } else if(humanScore < computerScore) {
+        gameWinner = "Computer wins!";
+    } else {
+        gameWinner = "Its a tie!";
+    }
+    return `${gameWinner}\n\nHuman Score: ${humanScore}\nComputer Score: ${computerScore}`;
+}
+
+alert(playGame());
