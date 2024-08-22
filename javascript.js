@@ -69,7 +69,9 @@ function playRound(humanChoice, computerChoice) { // Start here!
 
 function playGame() {
     let gameWinner = "";
-    alert(playRound(getHumanChoice(), getComputerChoice()));
+    //for(let i = 0; i < 5; i++) {
+        alert(playRound(getHumanChoice(), getComputerChoice()));
+    //}
     if(humanScore > computerScore) {
         gameWinner = "Human wins!";
     } else if(humanScore < computerScore) {
