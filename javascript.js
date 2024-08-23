@@ -15,22 +15,6 @@ function getComputerChoice() {
     return ans;
 }
 
-function getHumanChoice() {
-    let isTrue = true;
-    let ans = "";
-
-    while(isTrue) {
-        ans = prompt("Please select rock, paper, or scissors: ").toLowerCase().trim();
-        if(ans !== "rock" && ans !== "paper" && ans !== "scissors") {
-            console.log(`'${ans}' is not rock, paper, or scissors. Please try again.`);
-        } else {
-            isTrue = false;
-        }
-    }
-
-    return ans;
-}
-
 function playRound(humanChoice, computerChoice) { // Start here!
     let winner = "You ";
     if(humanChoice === 'rock') {
@@ -67,6 +51,7 @@ function playRound(humanChoice, computerChoice) { // Start here!
     return winner;
 }
 
+/*
 function playGame() {
     let gameWinner = "";
     //for(let i = 0; i < 5; i++) {
@@ -83,3 +68,22 @@ function playGame() {
 }
 
 alert(playGame());
+*/
+
+const buttons = document.querySelector('.buttons');
+
+buttons.addEventListener('click', (e) => {
+    let playerChoice = e.target.className;
+    
+    switch(playerChoice) {
+        case 'rock':
+            console.log(playRound(playerChoice, getComputerChoice()));
+            break;
+        case 'paper':
+            console.log(playRound(playerChoice, getComputerChoice()));
+            break;
+        case 'scissors':
+            console.log(playRound(playerChoice, getComputerChoice()));
+            break;
+    }
+});
