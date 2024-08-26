@@ -15,7 +15,7 @@ function getComputerChoice() {
     return ans;
 }
 
-function playRound(humanChoice, computerChoice) { // Start here!
+function playRound(humanChoice, computerChoice) {
     let winner = "You ";
     if(humanChoice === 'rock') {
         if(computerChoice === 'paper') {
@@ -48,27 +48,19 @@ function playRound(humanChoice, computerChoice) { // Start here!
             winner += "tie! Both players chose Scissors.";
         }
     }
-    return winner;
-}
+    const results = document.querySelector('.results'); // Need to remove children as more are added
+    const content = document.createElement('div');
+    
+    const result_para = document.createElement('p');
+    result_para.textContent = winner;
+    content.appendChild(result_para);
 
-/*
-function playGame() {
-    let gameWinner = "";
-    //for(let i = 0; i < 5; i++) {
-        alert(playRound(getHumanChoice(), getComputerChoice()));
-    //}
-    if(humanScore > computerScore) {
-        gameWinner = "Human wins!";
-    } else if(humanScore < computerScore) {
-        gameWinner = "Computer wins!";
-    } else {
-        gameWinner = "Its a tie!";
-    }
-    return `${gameWinner}\n\nHuman Score: ${humanScore}\nComputer Score: ${computerScore}`;
-}
+    const score = document.createElement('p');
+    score.textContent = `Player Score: ${humanScore}\nComputer Score: ${computerScore}`;
+    content.appendChild(score);
 
-alert(playGame());
-*/
+    results.appendChild(content);
+}
 
 const buttons = document.querySelector('.buttons');
 
