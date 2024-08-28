@@ -48,8 +48,14 @@ function playRound(humanChoice, computerChoice) {
             winner += "tie! Both players chose Scissors.";
         }
     }
-    const results = document.querySelector('.results'); // Need to remove children as more are added
+    const results = document.querySelector('.results');
+
+    if(results.firstChild) {
+        results.removeChild(document.getElementById('content'));
+    }
+    
     const content = document.createElement('div');
+    content.id = 'content';
     
     const result_para = document.createElement('p');
     result_para.textContent = winner;
