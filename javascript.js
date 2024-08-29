@@ -56,10 +56,10 @@ function playRound(humanChoice, computerChoice) {
     
     const content = document.createElement('div');
     content.id = 'content';
-    
-    const result_para = document.createElement('p');
-    result_para.textContent = winner;
-    content.appendChild(result_para);
+    const resultPara = document.createElement('p');
+    resultPara.id = 'result_para'
+    resultPara.textContent = winner;
+    content.appendChild(resultPara);
 
     const score = document.createElement('p');
     score.textContent = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
@@ -89,6 +89,9 @@ buttons.addEventListener('click', (e) => {
         buttons.removeChild(document.getElementById('rock'));
         buttons.removeChild(document.getElementById('paper'));
         buttons.removeChild(document.getElementById('scissors'));
+
+        const content = document.querySelector('#content');
+        content.removeChild(document.getElementById('result_para'));
 
         let winner = (playerScore > computerScore) ? 'Player' : 'Computer';
 
