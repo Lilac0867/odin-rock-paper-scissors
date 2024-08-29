@@ -1,4 +1,4 @@
-let humanScore = 0;
+let playerScore = 0;
 let computerScore = 0;
 
 function getComputerChoice() {
@@ -22,7 +22,7 @@ function playRound(humanChoice, computerChoice) {
             computerScore++;
             winner += "lose! Paper beats Rock.";
         } else if(computerChoice === 'scissors') {
-            humanScore++;
+            playerScore++;
             winner += "win! Rock beats Scissors.";
         } else {
             winner += "tie! Both players chose Rock.";
@@ -32,7 +32,7 @@ function playRound(humanChoice, computerChoice) {
             computerScore++;
             winner += "lose! Scissors beat Paper.";
         } else if(computerChoice === 'rock') {
-            humanScore++;
+            playerScore++;
             winner += "win! Paper beats Rock.";
         } else {
             winner += "tie! Both players chose Paper.";
@@ -42,7 +42,7 @@ function playRound(humanChoice, computerChoice) {
             computerScore++;
             winner += "lose! Rock beats Scissors.";
         } else if(computerChoice === 'paper') {
-            humanScore++;
+            playerScore++;
             winner += "win! Scissors beat Paper.";
         } else {
             winner += "tie! Both players chose Scissors.";
@@ -62,7 +62,7 @@ function playRound(humanChoice, computerChoice) {
     content.appendChild(result_para);
 
     const score = document.createElement('p');
-    score.textContent = `Player Score: ${humanScore}\nComputer Score: ${computerScore}`;
+    score.textContent = `Player Score: ${playerScore}\nComputer Score: ${computerScore}`;
     content.appendChild(score);
 
     results.appendChild(content);
@@ -75,13 +75,14 @@ buttons.addEventListener('click', (e) => {
     
     switch(playerChoice) {
         case 'rock':
-            console.log(playRound(playerChoice, getComputerChoice()));
+            playRound(playerChoice, getComputerChoice());
             break;
         case 'paper':
-            console.log(playRound(playerChoice, getComputerChoice()));
+            playRound(playerChoice, getComputerChoice());
             break;
         case 'scissors':
-            console.log(playRound(playerChoice, getComputerChoice()));
+            playRound(playerChoice, getComputerChoice());
             break;
     }
+    
 });
