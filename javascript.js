@@ -71,7 +71,7 @@ function playRound(humanChoice, computerChoice) {
 const buttons = document.querySelector('.buttons');
 
 buttons.addEventListener('click', (e) => {
-    let playerChoice = e.target.className;
+    let playerChoice = e.target.id;
     
     switch(playerChoice) {
         case 'rock':
@@ -85,4 +85,17 @@ buttons.addEventListener('click', (e) => {
             break;
     }
     
+    if(playerScore >= 5 || computerScore >= 5) {
+        buttons.removeChild(document.getElementById('rock'));
+        buttons.removeChild(document.getElementById('paper'));
+        buttons.removeChild(document.getElementById('scissors'));
+
+        let winner = (playerScore > computerScore) ? 'Player' : 'Computer';
+
+        const gameResults = document.querySelector('.game_results');
+        const winnerPara = document.createElement('p');
+        winnerPara.textContent = `${winner} wins!`;
+        gameResults.appendChild(winnerPara);
+    }
+
 });
